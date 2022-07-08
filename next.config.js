@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images : {
-    domains:['logosmarcas.net', 'cdn.onlinewebfonts.com']
+    domains:['logosmarcas.net', 'cdn.onlinewebfonts.com', 'i.pinimg.com'] 
   }
 }

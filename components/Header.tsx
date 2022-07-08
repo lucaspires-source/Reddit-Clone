@@ -65,12 +65,16 @@ function Header() {
           <div className="relative h-6 w-6 flex-shrink-0">
             <Image
               objectFit="contain"
-              src="http://cdn.onlinewebfonts.com/svg/img_155542.png"
+              src="https://i.pinimg.com/originals/d0/0d/ed/d00dedb162e23c80a54876a8f63cd061.png"
               alt="Sign In logo"
               layout="fill"
             />
           </div>
-          <p className="text-gray-400">Sign Out</p>
+          <div className="flex-1 text-xs">
+            <p className="truncate">{session?.user?.name}</p>
+            <p className="text-gray-400">Sign out</p>
+          </div>
+          <ChevronDownIcon className="h-5 flex-shrink-0 text-gray-800"/>
         </div>
       ) : (
         <div
