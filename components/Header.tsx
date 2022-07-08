@@ -24,6 +24,7 @@ function Header() {
           objectFit="contain"
           src="https://logosmarcas.net/wp-content/uploads/2020/11/Reddit-Logo.png"
           layout="fill"
+          alt="logo"
         />
       </div>
       <div className="flex items-center mx-7 xl:min-w-[300px] ">
@@ -41,17 +42,23 @@ function Header() {
         <button hidden type="submit" />
       </form>
       <div className="flex text-gray-500 space-x-2 mx-5 hidden lg:inline-flex">
-            <SparklesIcon  className="icon"/>
-            <GlobeIcon  className="icon"/>
-            <VideoCameraIcon  className="icon"/>
-            <hr className="h-10 border border-gray-100"/>
-            <ChatIcon  className="icon"/>
-            <BellIcon  className="icon"/>
-            <PlusIcon  className="icon"/>
-            <SpeakerphoneIcon className="icon" />
+        <SparklesIcon className="icon" />
+        <GlobeIcon className="icon" />
+        <VideoCameraIcon className="icon" />
+        <hr className="h-10 border border-gray-100" />
+        <ChatIcon className="icon" />
+        <BellIcon className="icon" />
+        <PlusIcon className="icon" />
+        <SpeakerphoneIcon className="icon" />
       </div>
       <div className="ml-5 flex items-center  lg:hidden">
-        <MenuIcon  className="icon"/>
+        <MenuIcon className="icon" />
+      </div>
+      <div className="hidden lg:flex items center space-x-2 border border-gray-100 p-2 cursor-pointer">
+        <div className="relative h-6 w-6 flex-shrink-0">
+          <Image  objectFit="contain" src="http://cdn.onlinewebfonts.com/svg/img_155542.png"  alt="Sign In logo" layout="fill" />
+        </div>
+        <p className="text-gray-400">Sign In</p>
       </div>
     </div>
   );
