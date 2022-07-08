@@ -15,8 +15,10 @@ import {
   SpeakerphoneIcon,
   VideoCameraIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Header() {
+  const { data: session } = useSession();
   return (
     <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm">
       <div className="relative h-10 w-20 flex-shrink-0">
@@ -24,6 +26,7 @@ function Header() {
           objectFit="contain"
           src="https://logosmarcas.net/wp-content/uploads/2020/11/Reddit-Logo.png"
           layout="fill"
+          alt="logo"
         />
       </div>
       <div className="flex items-center mx-7 xl:min-w-[300px] ">
@@ -41,18 +44,54 @@ function Header() {
         <button hidden type="submit" />
       </form>
       <div className="flex text-gray-500 space-x-2 mx-5 hidden lg:inline-flex">
-            <SparklesIcon  className="icon"/>
-            <GlobeIcon  className="icon"/>
-            <VideoCameraIcon  className="icon"/>
-            <hr className="h-10 border border-gray-100"/>
-            <ChatIcon  className="icon"/>
-            <BellIcon  className="icon"/>
-            <PlusIcon  className="icon"/>
-            <SpeakerphoneIcon className="icon" />
+        <SparklesIcon className="icon" />
+        <GlobeIcon className="icon" />
+        <VideoCameraIcon className="icon" />
+        <hr className="h-10 border border-gray-100" />
+        <ChatIcon className="icon" />
+        <BellIcon className="icon" />
+        <PlusIcon className="icon" />
+        <SpeakerphoneIcon className="icon" />
       </div>
       <div className="ml-5 flex items-center  lg:hidden">
-        <MenuIcon  className="icon"/>
+        <MenuIcon className="icon" />
       </div>
+
+      {session ? (
+        <div
+          onClick={() => signOut()}
+          className="hidden lg:flex items center space-x-2 border border-gray-100 p-2 cursor-pointer"
+        >
+          <div className="relative h-6 w-6 flex-shrink-0">
+            <Image
+              objectFit="contain"
+              src="https://i.pinimg.com/originals/d0/0d/ed/d00dedb162e23c80a54876a8f63cd061.png"
+              alt="Sign In logo"
+              layout="fill"
+            />
+          </div>
+          <div className="flex-1 text-xs">
+            <p className="truncate">{session?.user?.name}</p>
+            <p className="text-gray-400">Sign out</p>
+          </div>
+          <ChevronDownIcon className="h-5 flex-shrink-0 text-gray-800"/>
+        </div>
+      ) : (
+        <div
+          onClick={() => signIn()}
+          className="hidden lg:flex items center space-x-2 border border-gray-100 p-2 cursor-pointer"
+        >
+          <div className="relative h-6 w-6 flex-shrink-0">
+            <Image
+              objectFit="contain"
+              src="http://cdn.onlinewebfonts.com/svg/img_155542.png"
+              alt="Sign In logo"
+              layout="fill"
+            />
+          </div>
+          <p className="text-gray-400">Sign In</p>
+        </div>
+      )}
     </div>
   );
 }
