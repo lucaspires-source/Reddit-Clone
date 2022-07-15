@@ -2,6 +2,9 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import Avatar from "./Avatar";
 import { LinkIcon, PhotographIcon } from "@heroicons/react/outline";
+import { useForm } from "react-hook-form";
+
+
 function PostBox() {
   const { data: session } = useSession();
   return (
@@ -18,7 +21,7 @@ function PostBox() {
           }
         />
         <PhotographIcon className={`icon h-6 cursor-pointer text-gray-500`} />
-        <LinkIcon  className="icon h-6 text-gray-500"/>
+        <LinkIcon className="icon h-6 text-gray-500" />
       </div>
     </form>
   );
